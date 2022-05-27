@@ -13,7 +13,7 @@
 <body>
 <a href="/member/save">회원가입</a>
 <a href="/member/login">로그인</a>
-<a href="findAll">글목록</a>
+<a href="/board/list">글목록</a>
 
 </body>
 </html>

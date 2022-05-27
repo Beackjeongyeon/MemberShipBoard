@@ -42,7 +42,7 @@ public class MemberController {
     public  String login1(@ModelAttribute MemberDTO memberDTO){
         MemberDTO loginresult = memberService.login1(memberDTO);
         if(loginresult != null){
-            return "member/findAll";
+            return "board/list";
         }else{
             return "member/login";
         }

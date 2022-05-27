@@ -12,7 +12,7 @@
 </head>
 <body>
 <h2>회원가입</h2>
-<form action="/member/save1" method="Post">
+<form action="/member/save1" method="post" enctype="multipart/form-data">
     <input type="text" name="memberId" placeholder="아이디"><br>
     <input type="text" name="memberPassword" placeholder="비밀번호"><br>
     <input type="text" name="memberName" placeholder="이름"><br>
