@@ -9,10 +9,19 @@ import org.springframework.stereotype.Repository;
 public class MemberRepository {
     @Autowired
     private SqlSessionTemplate sql;
+
     public int save1(MemberDTO memberDTO) {
-        return sql.insert("member.save2",memberDTO);
+        return sql.insert("member.save2", memberDTO);
 
 
+    }
+
+    public void saveFile(MemberDTO memberDTO) {
+        sql.insert("member.save2", memberDTO);
+    }
+
+    public MemberDTO login1(MemberDTO memberDTO) {
+        return sql.selectOne("member.login2", memberDTO);
 
     }
 }

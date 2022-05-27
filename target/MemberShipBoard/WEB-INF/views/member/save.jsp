@@ -12,13 +12,13 @@
 </head>
 <body>
 <h2>회원가입</h2>
-<form action="Save1" method="Post">
+<form action="/member/save1" method="Post">
     <input type="text" name="memberId" placeholder="아이디"><br>
     <input type="text" name="memberPassword" placeholder="비밀번호"><br>
     <input type="text" name="memberName" placeholder="이름"><br>
     <input type="text" name="memberEmail" placeholder="아이디"><br>
     <input type="text" name="memberMobile" placeholder="전화번호"><br>
-    <input type="file" name="memberProfile" placeholder="프로필사진"><br>
+    <input type="file" name="memberProfile"><br>
     <input type="submit" value="회원가입">
 
 

@@ -4,10 +4,13 @@
 
 
 <mapper namespace="member">
-    <insert id="save2" parameterType="dto1">
+    <insert id="save2" parameterType="member">
         insert into member_table(memberId,memberPassword,memberName,memberEmail,memberMobile,memberFileName)
                 values (#{memberId},#{memberPassword},#{memberName},#{memberEmail},#{memberMoblie},#{memberFileName})
     </insert>
 
-
+    <select id="login2" parameterType="member" resultType="member">
+        select*from member_table where memberId=#{memberId} and memberPassword=#{memberPassword};
+    </select>
 </mapper>
+

@@ -11,6 +11,12 @@
     <title>로그인페이지입니다.</title>
 </head>
 <body>
+<form action="/member/login1" method="post">
+    <input type="text" name="memberId" placeholder="아이디"><br>
+    <input type="text" name="memberPassword" placeholder="비밀번호"><br>
+    <input type="submit" value="로그인">
 
+
+</form>
 </body>
 </html>
