@@ -24,4 +24,9 @@ public class MemberRepository {
         return sql.selectOne("member.login2", memberDTO);
 
     }
+
+
+    public MemberDTO logincheck1(String memberId) {
+        return sql.selectOne("member.idcheck1",memberId);
+    }
 }

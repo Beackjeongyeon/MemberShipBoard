@@ -19,9 +19,9 @@ public class MemberService {
     public boolean save1(MemberDTO memberDTO) {
 
         int saveresult = memberRepository.save1(memberDTO);
-        if(saveresult >0){
+        if (saveresult > 0) {
             return true;
-        }else{
+        } else {
             return false;
         }
     }
@@ -38,13 +38,13 @@ public class MemberService {
          * 5.파일저장 처리
          * 6.dto객체 repository로 전달
          */
-        MultipartFile boardFile= memberDTO.getMemberProfile();//1번
+        MultipartFile boardFile = memberDTO.getMemberProfile();//1번
         String memberFileName = boardFile.getOriginalFilename();//2
-        memberFileName =System.currentTimeMillis()+"-"+memberFileName;//2.1
+        memberFileName = System.currentTimeMillis() + "-" + memberFileName;//2.1
         memberDTO.setMemberFileName(memberFileName);//3
-        String savePath ="D:\\spring_img\\"+memberFileName;//4
+        String savePath = "D:\\spring_img\\" + memberFileName;//4
 
-        if(!boardFile.isEmpty()){
+        if (!boardFile.isEmpty()) {
             boardFile.transferTo(new File(savePath));
             //파일이 비어있지 않다면 그 파일을 세이브 패스 경로에 옮겨라(저장해라)
             //나를 호출한 대로 이 익셉션을 던지겠다(예외처리)
@@ -53,10 +53,19 @@ public class MemberService {
     }
 
     public MemberDTO login1(MemberDTO memberDTO) {
-         return memberRepository.login1(memberDTO);
+        return memberRepository.login1(memberDTO);
 
 
+    }
 
+
+    public boolean logincheck1(String memberId) {
+        MemberDTO idresult = memberRepository.logincheck1(memberId);
+        if (idresult == null) {
+            return true;
+        } else {
+            return false;
+        }
 
     }
 }

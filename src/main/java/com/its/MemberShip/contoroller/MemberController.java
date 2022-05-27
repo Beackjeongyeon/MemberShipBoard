@@ -4,10 +4,9 @@ import com.its.MemberShip.dto.MemberDTO;
 import com.its.MemberShip.service.MemberService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
+
+import java.io.IOException;
 
 @Controller
 @RequestMapping("/member")
@@ -23,7 +22,7 @@ public class MemberController {
 
 
     @PostMapping ("/save1")
-    public String save1(@ModelAttribute MemberDTO memberDTO){
+    public String save1(@ModelAttribute MemberDTO memberDTO)throws IOException {
        boolean saveresult = memberService.save1(memberDTO);
         System.out.println("MemberController.save1");
         System.out.println("memberDTO = " + memberDTO);
@@ -47,6 +46,15 @@ public class MemberController {
             return "member/login";
         }
     }
+    @PostMapping("/duplicate-check")
+    public  String logincheck(@RequestParam("memberId")String memberId ){
+        memberService.logincheck1(memberId);
+
+        return null;
+
+    }
+
+
     }
 
 

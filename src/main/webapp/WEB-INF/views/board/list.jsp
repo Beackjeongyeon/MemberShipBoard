@@ -14,6 +14,11 @@
     <link rel="stylesheet" href="/resources/css/bootstrap.min.css">
 </head>
 <body>
+    <form action="/board/logout" method="post" >
+        <input type="button" value="로그아웃">
+
+    </form>
+
     <div class="container">
         <table class="table">
             <tr>
