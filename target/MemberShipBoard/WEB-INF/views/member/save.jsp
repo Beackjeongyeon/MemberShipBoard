@@ -9,19 +9,31 @@
 <html>
 <head>
     <title>회원가입 페이지입니다.</title>
+    <link rel="stylesheet" href="/resources/css/bootstrap.min.css">
+    <script src="/resources/js/jquery.js"></script>
+    <style>
+        .container {
+            max-width: 500px;
+        }
+    </style>
 </head>
 <body>
-<h2>회원가입</h2>
+
+<div class="container">
+    <h2 class="display-4 fw-normal">회원가입</h2>
+    <div class="py-5 text-center">
 <form action="/member/save1" method="post" enctype="multipart/form-data">
-    <input type="text" name="memberId" onblur="duplicateCheck()" placeholder="아이디"><br>
+    <input class="form-control mb-2" name="memberId" onblur="duplicateCheck()" placeholder="아이디"><br>
     <div id ="dup-check-result"></div>
-    <input type="text" name="memberPassword" placeholder="비밀번호"><br>
-    <input type="text" name="memberName" placeholder="이름"><br>
-    <input type="text" name="memberEmail" placeholder="아이디"><br>
-    <input type="text" name="memberMobile" placeholder="전화번호"><br>
+    <input class="form-control mb-2" name="memberPassword" placeholder="비밀번호"><br>
+    <input class="form-control mb-2" name="memberName" placeholder="이름"><br>
+    <input class="form-control mb-2" name="memberEmail" placeholder="아이디"><br>
+    <input class="form-control mb-2" name="memberMobile" placeholder="전화번호"><br>
     <input type="file" name="memberProfile"><br>
-    <input type="submit" value="회원가입">
+    <input type="submit" class="btn btn-primary" value="회원가입">
 </form>
+    </div>
+</div>
 
 </body>
 <script>

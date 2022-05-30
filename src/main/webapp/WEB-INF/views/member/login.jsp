@@ -9,6 +9,12 @@
 <html>
 <head>
     <title>로그인페이지입니다.</title>
+    <link rel="stylesheet" href="/resources/css/bootstrap.min.css">
+    <style>
+        .container {
+            max-width: 500px;
+        }
+    </style>
 </head>
 <body>
 <form action="/member/login1" method="post">

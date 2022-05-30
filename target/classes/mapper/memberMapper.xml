@@ -6,7 +6,7 @@
 <mapper namespace="member">
     <insert id="save2" parameterType="member">
         insert into member_table(memberId,memberPassword,memberName,memberEmail,memberMobile,memberFileName)
-                values (#{memberId},#{memberPassword},#{memberName},#{memberEmail},#{memberMobile},#{memberFileName})
+        values (#{memberId},#{memberPassword},#{memberName},#{memberEmail},#{memberMobile},#{memberFileName})
     </insert>
 
     <select id="idcheck1" parameterType="String" resultType="member">
@@ -16,6 +16,11 @@
     <select id="login2" parameterType="member" resultType="member">
         select * from member_table where memberId=#{memberId} and memberPassword=#{memberPassword};
     </select>
+
+
+
+
+
 
 
 </mapper>

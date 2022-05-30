@@ -24,8 +24,6 @@ public class MemberController {
     @PostMapping ("/save1")
     public String save1(@ModelAttribute MemberDTO memberDTO)throws IOException {
        boolean saveresult = memberService.save1(memberDTO);
-        System.out.println("MemberController.save1");
-        System.out.println("memberDTO = " + memberDTO);
         if(saveresult == true){
             return "member/login";
         }else{
@@ -35,13 +33,14 @@ public class MemberController {
     }
     @GetMapping("/login")
     public String login(){
+
         return "member/login";
     }
     @PostMapping("/login1")
     public  String login1(@ModelAttribute MemberDTO memberDTO){
         MemberDTO loginresult = memberService.login1(memberDTO);
         if(loginresult != null){
-            return "board/list";
+            return "board/pagingList";
         }else{
             return "member/login";
         }

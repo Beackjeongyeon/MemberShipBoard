@@ -49,7 +49,7 @@ public class MemberService {
             //파일이 비어있지 않다면 그 파일을 세이브 패스 경로에 옮겨라(저장해라)
             //나를 호출한 대로 이 익셉션을 던지겠다(예외처리)
         }//5
-        memberRepository.saveFile(memberDTO);//6
+        memberRepository.saveFile(memberDTO);//
     }
 
     public MemberDTO login1(MemberDTO memberDTO) {

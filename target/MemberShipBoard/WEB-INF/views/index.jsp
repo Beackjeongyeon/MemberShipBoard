@@ -9,11 +9,12 @@
 <html>
 <head>
     <title>시작페이지입니다.</title>
+    <link rel="stylesheet" href="/resources/css/bootstrap.min.css">
 </head>
 <body>
 <a href="/member/save">회원가입</a>
 <a href="/member/login">로그인</a>
-<a href="/board/list">글목록</a>
+<a href="/board/pagingList">글목록</a>
 
 </body>
 </html>

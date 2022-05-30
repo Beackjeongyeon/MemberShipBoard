@@ -12,8 +12,6 @@ public class MemberRepository {
 
     public int save1(MemberDTO memberDTO) {
         return sql.insert("member.save2", memberDTO);
-
-
     }
 
     public void saveFile(MemberDTO memberDTO) {
