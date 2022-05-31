@@ -1,12 +1,10 @@
 package com.its.MemberShip.repository;
 
 import com.its.MemberShip.dto.BoardDTO;
-import org.apache.ibatis.jdbc.SQL;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+
 
 import java.util.List;
 import java.util.Map;
@@ -15,6 +13,9 @@ import java.util.Map;
 public class BoardRepository {
     @Autowired
     private SqlSessionTemplate Sql;
+
+    public void saveFile(BoardDTO boardDTO) {
+        Sql.insert("board.saveFile", boardDTO); }
 
 
     public int writesave(BoardDTO boardDTO) {
@@ -30,7 +31,9 @@ public class BoardRepository {
     }
 
     public BoardDTO findById(BoardDTO boardDTO) {
+
         return Sql.selectOne("board.findById",boardDTO);
+
     }
 
     public List<BoardDTO> search(Map<String, String> searchParam) {

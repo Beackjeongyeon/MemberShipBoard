@@ -18,6 +18,8 @@
     </style>
 </head>
 <body>
+<jsp:include page="../layout/header.jsp" flush="false"></jsp:include>
+<br><br><br><br><br>
 
 <div class="container">
     <h2 class="display-4 fw-normal">회원가입</h2>

@@ -5,8 +5,8 @@
 
 <mapper namespace="board">
     <insert id="save" parameterType="board">
-        insert into board_table(boardTitle,boardWriter,boardContents,boardFileName)
-        values (#{boardTitle},#{boardWriter},#{boardContents},#{boardFileName})
+        insert into board_table(boardTitle,boardWriter,boardContents,boardFileName,boardCreateDate)
+        values (#{boardTitle},#{boardWriter},#{boardContents},#{boardFileName},now())
     </insert>
 
     <select id="findAll" resultType="board">
@@ -25,5 +25,11 @@
         select * from board_table where ${type}
         like concat('%', #{q}, '%') order by id desc;
     </select>
+
+    <insert id="saveFile" parameterType="board">
+        insert into board_table
+        (boardWriter, boardTitle,boardContents, boardCreateDate, boardFileName)
+        values (#{boardWriter}, #{boardTitle},#{boardContents}, now(), #{boardFileName})
+    </insert>
 
 </mapper>
