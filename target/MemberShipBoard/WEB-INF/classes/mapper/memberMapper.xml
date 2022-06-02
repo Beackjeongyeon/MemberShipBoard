@@ -16,7 +16,12 @@
     <select id="login2" parameterType="member" resultType="member">
         select * from member_table where memberId=#{memberId} and memberPassword=#{memberPassword};
     </select>
-
+    <select id="findById" resultType="member">
+        select * from member_table where id=#{id}
+    </select>
+    <update id="update" parameterType="member">
+        update member_table set memberPhone=#{memberPhone} where id=#{id}
+    </update>
 
 
 

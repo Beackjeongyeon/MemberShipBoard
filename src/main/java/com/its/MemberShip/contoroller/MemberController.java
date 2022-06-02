@@ -58,6 +58,9 @@ public class MemberController {
         Long id = loginresult.getId();
         session.setAttribute("memberId",memberId);
         session.setAttribute("Id",id);
+
+
+
         if(loginresult != null){
             return "board/pagingList";
         }else{
@@ -81,11 +84,31 @@ public class MemberController {
         return null;
 
     }
-
-
-
-
+  @PostMapping("/myPage")
+    public String result(Model model,HttpSession session){
+        Long id = (Long) session.getAttribute("Id");
+        MemberDTO memberDTO = memberService.findById(id);
+        model.addAttribute("updateMember",memberDTO);
+      System.out.println("MemberController.result");
+      System.out.println(id);
+        return "/member/myPage";
+  }
+    @PostMapping("/update")
+    public String update(@ModelAttribute MemberDTO memberDTO){
+        System.out.println("memberDTO = " + memberDTO);
+        boolean updateResult = memberService.update(memberDTO);
+        if(updateResult){
+            // 해당 회원의 상세정보
+            return "redirect:/detail?id=" + memberDTO.getId();
+        }else{
+            return "update-fail";
+        }
     }
+  }
+
+
+
+
 
 
 

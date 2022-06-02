@@ -15,9 +15,8 @@
 </head>
 <body>
 <header class="p-3 bg-dark text-white">
-    <div class="container">
-        <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-            <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+        <div class="">
+            <ul class="nav  mb-2 input-group justify-content-center">
                 <li><a href="/" class="nav-link px-2 text-secondary">Home</a></li>
                 <br>
                 <li><a href="/board/saveFile" class="nav-link px-2 text-white">글쓰기</a></li>
@@ -26,12 +25,19 @@
 
             </ul>
 
-            <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
-                <input type="search" class="form-control form-control-dark text-white bg-dark" placeholder="Search..."
-                       aria-label="Search">
-            </form>
 
-            <div class="text-end">
+            <div class="input-group container" style="width:300px">
+            <form class="mb-3 input-group"  role="search" action="/board/search" method="get">
+                <select class="form-select" name="searchType">
+                    <option value="boardTitle">제목</option>
+                    <option value="boardWriter">작성자</option>
+                </select>
+                <input type="search" class="input-group form-control form-control-dark text-white bg-dark"  name="q" placeholder="Search..."
+                       aria-label="Search">
+                <input class="input-group-text btn btn-outline-light " type="submit" value="검색">
+            </form>
+            </div>
+            <div class="" style="text-align: right">
                 <c:choose>
                     <c:when test="${sessionScope.memberId == null}">
                         <button type="button" class="btn btn-outline-light me-2" onclick="login()">Login</button>
@@ -62,8 +68,7 @@
 
 
             </div>
-        </div>
-    </div>
+            </div>
 </header>
 
 <script>
@@ -75,7 +80,7 @@
         location.href = "/member/logout"
     }
     function mypage(){
-        location.href = "member/myPage"
+        location.href = "/member/myPage"
     }
     function save(){
         location.href = "member/save1"

@@ -36,7 +36,11 @@ public class BoardRepository {
 
     }
 
-    public List<BoardDTO> search(Map<String, String> searchParam) {
-        return Sql.selectList("Board.search", searchParam);
+
+    public List<BoardDTO> search(Map<String, String> search) {
+        System.out.println("search = " + search);
+        System.out.println("BoardRepository.search");
+        return Sql.selectList("board.find",search);
+
     }
 }

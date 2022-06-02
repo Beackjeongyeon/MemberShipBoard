@@ -55,13 +55,7 @@ public class BoardController {
         System.out.println("model = " + boardDTOList);
         return "board/pagingList";
     }
-    @GetMapping("/board/search")
-    public String search(@RequestParam("searchType") String searchType,
-                         @RequestParam("q") String q, Model model) {
-        List<BoardDTO> searchList = boardService.search(searchType, q);
-        model.addAttribute("boardList", searchList);
-        return "board/list";
-    }
+
     @GetMapping("/board/saveFile")
     public String savefile1(){
         return "board/saveFile";
@@ -80,6 +74,15 @@ public class BoardController {
         BoardDTO board= boardService.findById(boardDTO);
         model.addAttribute("board", board);
         return "board/detail";
+    }
+    @GetMapping("board/search")
+    public String search(@RequestParam("searchType") String searchType,
+                         @RequestParam("q") String q, Model model){
+       List<BoardDTO>searchList= boardService.search(searchType,q);
+        model.addAttribute("boardList",searchList);
+        System.out.println("BoardController.search");
+        System.out.println(searchList);
+        return "board/pagingList";
     }
 
 

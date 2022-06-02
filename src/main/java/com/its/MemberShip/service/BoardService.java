@@ -57,16 +57,18 @@ public class BoardService {
         return boardRepository.findById(boardDTO);
     }
 
+
     public List<BoardDTO> search(String searchType, String q) {
-        Map<String, String> searchParam = new HashMap<>();
-        searchParam.put("type", searchType);
-        searchParam.put("q", q);
-        List<BoardDTO> searchList = boardRepository.search(searchParam);
+        Map<String, String> search = new HashMap<>();
+        search.put("type",searchType);
+        search.put("q",q);
+        List<BoardDTO>searchList =boardRepository.search(search);
         System.out.println("BoardService.search");
+        System.out.println("searchType = " + searchType + ", q = " + q);
         return searchList;
-    }
 
 
     }
+}
 
 

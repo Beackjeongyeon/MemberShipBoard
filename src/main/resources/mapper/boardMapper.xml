@@ -21,15 +21,16 @@
         select * from board_table where id=#{id}
     </select>
 
-    <select id="search" parameterType="java.util.HashMap" resultType="board">
-        select * from board_table where ${type}
-        like concat('%', #{q}, '%') order by id desc;
-    </select>
+
 
     <insert id="saveFile" parameterType="board">
         insert into board_table
         (boardWriter, boardTitle,boardContents, boardCreateDate, boardFileName)
         values (#{boardWriter}, #{boardTitle},#{boardContents}, now(), #{boardFileName})
     </insert>
+    <select id="find" parameterType="java.util.HashMap" resultType="board">
+        select *from board_table where ${type} like concat('%',#{q},'%') order by id desc;
+
+    </select>
 
 </mapper>

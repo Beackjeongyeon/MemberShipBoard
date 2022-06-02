@@ -19,10 +19,13 @@
 <body>
 <jsp:include page="../layout/header.jsp" flush="false"></jsp:include>
 <br><br><br><br><br>
+<div class="" style="text-align: center">
 <form action="/member/login1" method="post">
     <input type="text" name="memberId" placeholder="아이디"><br>
     <input type="text" name="memberPassword" placeholder="비밀번호"><br>
     <input type="submit" value="로그인">
+</form>
+</div>
 
 
 </form>
