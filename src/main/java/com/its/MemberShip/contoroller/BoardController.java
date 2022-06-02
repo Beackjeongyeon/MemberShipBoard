@@ -1,7 +1,10 @@
 package com.its.MemberShip.contoroller;
 
 import com.its.MemberShip.dto.BoardDTO;
+import com.its.MemberShip.dto.CommentDTO;
+import com.its.MemberShip.dto.PageDTO;
 import com.its.MemberShip.service.BoardService;
+import com.its.MemberShip.service.CommentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -22,6 +25,8 @@ public class BoardController {
 
     @Autowired
     private BoardService boardService;
+    @Autowired
+    CommentService commentService;
 
 
 
@@ -30,9 +35,6 @@ public class BoardController {
         return "/board/save";
     }
     // 글작성
-
-
-
 
     @PostMapping("/board/save")
     public String writesave(@ModelAttribute BoardDTO boardDTO) {
@@ -72,6 +74,8 @@ public class BoardController {
     @GetMapping("/board/detail")
     public String findById(@ModelAttribute BoardDTO boardDTO ,Model model){
         BoardDTO board= boardService.findById(boardDTO);
+        List<CommentDTO> save = commentService.findByBoardId(boardDTO.getId());
+        model.addAttribute("id",save);
         model.addAttribute("board", board);
         return "board/detail";
     }
@@ -82,6 +86,18 @@ public class BoardController {
         model.addAttribute("boardList",searchList);
         System.out.println("BoardController.search");
         System.out.println(searchList);
+        return "board/pagingList";
+    }
+    @GetMapping("/paging")
+//    /board/paging?page=1
+//    required=false로 하면 /board/paging 요청도 가능
+//    별도의 페이지 값을 요청하지 않으면 첫페이지(pgae=1)를 보여주자.
+    public String paging(@RequestParam(value="page", required=false, defaultValue="1") int page,
+                         Model model) {
+        List<BoardDTO> boardList = boardService.pagingList(page);
+        PageDTO paging = boardService.paging(page);
+        model.addAttribute("boardList", boardList);
+        model.addAttribute("paging", paging);
         return "board/pagingList";
     }
 

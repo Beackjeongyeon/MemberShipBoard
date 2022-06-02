@@ -39,27 +39,22 @@
         </tr>
     </table>
 </div>
+<c:if test="${sessionScope.memberId !=null}">
 <form class="form-control">
-    <input type="text" id="commentWriter" name="commentWriter" placeholder="작성자를 입력해주세요" width="100px">
+    <input type="text" id="commentWriter" name="commentWriter"  value="${sessionScope.memberId}" readonly width="100px">
     <input type="text" id="commentContents" name="commentContents" placeholder="내용을 입력해주세요" width="100px">
-
-    <c:choose>
-        <c:when test="${sessionScope.memberId == null}">
-            <button type="button" class="btn btn-warning" onclick="login()">로그인</button>
-        </c:when>
-        <c:otherwise>
             <button type="button" class="btn btn-primary" onclick="saveComment()">댓글작성</button>
-        </c:otherwise>
-    </c:choose>
-
+            <button type="button" onclick="boardUpdate()">수정</button>
+            <button type="button" onclick="boardDelete()">삭제</button>
 
 </form>
+    </c:if>
 <div id="asd"></div>
 
 
 <script>
     function saveComment() {
-        const commentWriter = document.getElementById("commentWriter").value;
+        const commentWriter ='${sessionScope.memberId}'
         const commentContents = document.getElementById("commentContents").value;
 
         $.ajax({
@@ -92,7 +87,6 @@
                 }
                 document.getElementById("asd").innerHTML = output;
                 document.getElementById("commentContents").value = '';
-                document.getElementById("commentWriter").value = '';
 
 
             },

@@ -29,7 +29,7 @@
     <div id ="dup-check-result"></div>
     <input class="form-control mb-2" name="memberPassword" placeholder="비밀번호"><br>
     <input class="form-control mb-2" name="memberName" placeholder="이름"><br>
-    <input class="form-control mb-2" name="memberEmail" placeholder="아이디"><br>
+    <input class="form-control mb-2" name="memberEmail" placeholder="이메일"><br>
     <input class="form-control mb-2" name="memberMobile" placeholder="전화번호"><br>
     <input type="file" name="memberProfile"><br>
     <input type="submit" class="btn btn-primary" value="회원가입">

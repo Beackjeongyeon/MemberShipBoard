@@ -19,7 +19,7 @@
 
         <form action="/board/saveFile" method="post" enctype="multipart/form-data">
             <input class="form-control mb-2" type="text" name="boardTitle" placeholder="제목">
-            <input class="form-control mb-2" type="text" name="boardWriter" placeholder="작성자">
+            <input class="form-control mb-2" type="text" name="boardWriter" value="${sessionScope.memberId}" readonly>
             <textarea class="form-control mb-2" name="boardContents" rows="5" cols="10"></textarea>
             첨부파일: <input type="file" name="boardFile">
             <input class="btn btn-primary" type="submit" value="글작성">

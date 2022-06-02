@@ -15,9 +15,9 @@
 <jsp:include page="layout/header.jsp" flush="false"></jsp:include>
 <br><br><br><br><br>
 <div class="" style="text-align: center">
-<a href="/member/save">회원가입</a>
+<a href="/member/save1">회원가입</a>
 <a href="/member/login">로그인</a>
-<a href="/board/pagingList">글목록</a>
+<a href="/paging">글목록</a>
 </div>
 </body>
 </html>

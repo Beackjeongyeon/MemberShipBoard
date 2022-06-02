@@ -20,8 +20,12 @@
         select * from member_table where id=#{id}
     </select>
     <update id="update" parameterType="member">
-        update member_table set memberPhone=#{memberPhone} where id=#{id}
+        update member_table set memberMobile=#{memberMobile} where id=#{id}
     </update>
+    <delete id="delete" parameterType="Long">
+    delete from member_table where id = #{id}
+
+    </delete>
 
 
 

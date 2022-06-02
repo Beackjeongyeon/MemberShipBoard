@@ -80,6 +80,11 @@ public class MemberService {
     }
 
     public MemberDTO findById(Long id) {
+
         return memberRepository.findById(id);
+    }
+
+    public int delete(Long id) {
+        return memberRepository.delete(id);
     }
 }

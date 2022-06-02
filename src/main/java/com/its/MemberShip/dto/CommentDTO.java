@@ -10,7 +10,7 @@ public class CommentDTO {
     private Long boardId;
     private String commentContents;
     private String commentWriter;
-    private Timestamp commentCreatedDate;
+    private String commentCreatedDate;
 
 
 }

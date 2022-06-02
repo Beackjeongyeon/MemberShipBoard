@@ -27,6 +27,7 @@
     </form>
 </div>
 
+
 <div class="container">
     <table class="table">
         <tr>
@@ -60,7 +61,7 @@
             <%-- 1페이지가 아닌 경우에는 [이전]을 클릭하면 현재 페이지보다 1 작은 페이지 요청 --%>
             <c:otherwise>
                 <li class="page-item">
-                    <a class="page-link" href="/board/paging?page=${paging.page-1}">[이전]</a>
+                    <a class="page-link" href="/paging?page=${paging.page-1}">[이전]</a>
                 </li>
             </c:otherwise>
         </c:choose>
@@ -77,7 +78,7 @@
 
                 <c:otherwise>
                     <li class="page-item">
-                        <a class="page-link" href="/board/paging?page=${i}">${i}</a>
+                        <a class="page-link" href="/paging?page=${i}">${i}</a>
                     </li>
                 </c:otherwise>
             </c:choose>
@@ -91,7 +92,7 @@
             </c:when>
             <c:otherwise>
                 <li class="page-item">
-                    <a class="page-link" href="/board/paging?page=${paging.page+1}">[다음]</a>
+                    <a class="page-link" href="/paging?page=${paging.page+1}">[다음]</a>
                 </li>
             </c:otherwise>
         </c:choose>
@@ -99,7 +100,17 @@
 
     </ul>
 </div>
-
+<script>
+    const boardUpdate = () => {
+        // 수정을 위한 화면(update.jsp)을 출력하고, 비밀번호를 입력받아서
+        // 비밀번호 일치하면 수정처리, 일치하지 않으면 alert(회원 수정이랑 프로세스 같음.)
+        location.href = "/board/update?id=${board.id}";
+    }
+    const boardDelete = () => {
+        // 비밀번호 체크를 위한 화면(passwordCheck.jsp)을 출력하고, 비밀번호 입력받아서
+        // 비밀번호 일치하면 삭제처리 후 목록 출력, 일치하지 않으면 alert 띄우고 상세화면으로
+        location.href = "/board/passwordCheck?id=${board.id}";
+</script>
 
 </body>
 </html>

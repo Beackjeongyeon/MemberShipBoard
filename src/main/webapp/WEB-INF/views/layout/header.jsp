@@ -1,4 +1,3 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: user
@@ -6,6 +5,7 @@
   Time: 오후 8:10
   To change this template use File | Settings | File Templates.
 --%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <html>
@@ -19,8 +19,17 @@
             <ul class="nav  mb-2 input-group justify-content-center">
                 <li><a href="/" class="nav-link px-2 text-secondary">Home</a></li>
                 <br>
+                <c:if test="${sessionScope.memberId != null}">
+<%--                <c:choose>--%>
+<%--                <c:when test="${sessionScope.memberId != null}">--%>
+
                 <li><a href="/board/saveFile" class="nav-link px-2 text-white">글쓰기</a></li>
                 <br>
+<%--                </c:when>--%>
+<%--                </c:choose>--%>
+                </c:if>
+
+
 
 
             </ul>
@@ -83,7 +92,7 @@
         location.href = "/member/myPage"
     }
     function save(){
-        location.href = "member/save1"
+        location.href = "/member/save1"
     }
 
 </script>
