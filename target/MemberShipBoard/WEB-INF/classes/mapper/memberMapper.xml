@@ -14,7 +14,7 @@
     </select>
 
     <select id="login2" parameterType="member" resultType="member">
-        select * from member_table where memberId=#{memberId} and memberPassword=#{memberPassword};
+        select * from member_table where memberId=#{memberId} and memberPassword=#{memberPassword}
     </select>
     <select id="findById" resultType="member">
         select * from member_table where id=#{id}
@@ -26,6 +26,13 @@
     delete from member_table where id = #{id}
 
     </delete>
+    <select id="findAll" resultType="member">
+        select * from member_table
+    </select>
+    <delete id="delete1" parameterType="member">
+    delete from member_table
+    </delete>
+
 
 
 

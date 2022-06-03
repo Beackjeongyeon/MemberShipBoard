@@ -48,6 +48,7 @@ public class BoardService {
         boardRepository.saveFile(boardDTO); // 6.
     }
     public List<BoardDTO> findAll() {
+
         return boardRepository.findAll();
     }
 

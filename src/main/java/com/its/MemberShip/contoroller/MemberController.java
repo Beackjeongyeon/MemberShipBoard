@@ -2,7 +2,6 @@ package com.its.MemberShip.contoroller;
 
 import com.its.MemberShip.dto.BoardDTO;
 import com.its.MemberShip.dto.MemberDTO;
-import com.its.MemberShip.dto.PageDTO;
 import com.its.MemberShip.service.BoardService;
 import com.its.MemberShip.service.MemberService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -134,8 +133,24 @@ public class MemberController {
         }
     }
 
+    @GetMapping("/admin")
+    public String findAll(Model model) {
+        List<MemberDTO> memberDTOList = memberService.findAll();
+        System.out.println("MemberController.findAll");
+        System.out.println(memberDTOList);
+        model.addAttribute("memberList", memberDTOList);
+        return "member/admin";
+    }
 
-
+ @GetMapping("/delete1")
+ public String delete1(@RequestParam("id") Long id) {
+     int result = memberService.delete(id);
+     if (result > 0) {
+         return "index";
+     } else {
+         return "/member/admin";
+     }
+ }
 }
 
 

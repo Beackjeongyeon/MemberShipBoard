@@ -52,7 +52,7 @@ public class BoardController {
     @GetMapping("/board/pagingList")
     public String findAll(Model model) {
         List<BoardDTO> boardDTOList = boardService.findAll();
-        model.addAttribute("boardList", boardDTOList);
+        model.addAttribute("memberList", boardDTOList);
         System.out.println("BoardController.findAll");
         System.out.println("model = " + boardDTOList);
         return "board/pagingList";

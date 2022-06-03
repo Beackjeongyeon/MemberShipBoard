@@ -6,8 +6,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.servlet.http.HttpSession;
 import java.io.File;
 import java.io.IOException;
+import java.util.List;
 
 @Service
 
@@ -85,6 +87,16 @@ public class MemberService {
     }
 
     public int delete(Long id) {
+
+        return memberRepository.delete(id);
+    }
+
+
+    public List<MemberDTO> findAll() {
+        return memberRepository.findAll();
+    }
+
+    public int delete1(Long id) {
         return memberRepository.delete(id);
     }
 }

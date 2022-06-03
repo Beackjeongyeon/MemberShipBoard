@@ -15,76 +15,67 @@
 </head>
 <body>
 <header class="p-3 bg-dark text-white">
-        <div class="">
-            <ul class="nav  mb-2 input-group justify-content-center">
-                <li><a href="/" class="nav-link px-2 text-secondary">Home</a></li>
-                <br>
-                <c:if test="${sessionScope.memberId != null}">
-<%--                <c:choose>--%>
-<%--                <c:when test="${sessionScope.memberId != null}">--%>
+    <div class="">
+        <ul class="nav  mb-2 input-group justify-content-center">
+            <li><a href="/" class="nav-link px-2 text-secondary">Home</a></li>
+            <br>
+            <c:if test="${sessionScope.memberId != null}">
+                <%--                <c:choose>--%>
+                <%--                <c:when test="${sessionScope.memberId != null}">--%>
 
                 <li><a href="/board/saveFile" class="nav-link px-2 text-white">글쓰기</a></li>
                 <br>
-<%--                </c:when>--%>
-<%--                </c:choose>--%>
-                </c:if>
+                <%--                </c:when>--%>
+                <%--                </c:choose>--%>
+            </c:if>
+
+        </ul>
+
+
+            <c:if test="${sessionScope.memberId eq 'admin'}">
+                <a href="/member/admin" class="btn btn-secondary">관리자페이지</a>
+            </c:if>
 
 
 
+        <div class="" style="text-align: right">
+            <c:choose>
+                <c:when test="${sessionScope.memberId == null}">
+                    <button type="button" class="btn btn-outline-light me-2" onclick="login()">Login</button>
+                </c:when>
+                <c:otherwise>
+                    <button type="button" class="btn btn-outline-light me-2" onclick="logout()">Logout</button>
+                </c:otherwise>
+            </c:choose>
 
-            </ul>
-
-
-            <div class="input-group container" style="width:300px">
-            <form class="mb-3 input-group"  role="search" action="/board/search" method="get">
-                <select class="form-select" name="searchType">
-                    <option value="boardTitle">제목</option>
-                    <option value="boardWriter">작성자</option>
-                </select>
-                <input type="search" class="input-group form-control form-control-dark text-white bg-dark"  name="q" placeholder="Search..."
-                       aria-label="Search">
-                <input class="input-group-text btn btn-outline-light " type="submit" value="검색">
-            </form>
-            </div>
-            <div class="" style="text-align: right">
-                <c:choose>
-                    <c:when test="${sessionScope.memberId == null}">
-                        <button type="button" class="btn btn-outline-light me-2" onclick="login()">Login</button>
-                    </c:when>
-                    <c:otherwise>
-                        <button type="button" class="btn btn-outline-light me-2" onclick="logout()">Logout</button>
-                    </c:otherwise>
-                </c:choose>
-
-                <%--    if(로그인 == 완료){--%>
-                <%--    마이페이지(sign-up)
-                <%--    }else{--%>
-                <%--    로그인 x sign-up x --%>
+            <%--    if(로그인 == 완료){--%>
+            <%--    마이페이지(sign-up)
+            <%--    }else{--%>
+            <%--    로그인 x sign-up x --%>
 
 
 
-<%--                <button type="button" class="btn btn-warning" onclick="save()">Sign-up</button>--%>
-                <c:choose>
-                    <c:when test="${sessionScope.memberId != null}">
+            <%--                <button type="button" class="btn btn-warning" onclick="save()">Sign-up</button>--%>
+            <c:choose>
+                <c:when test="${sessionScope.memberId != null}">
                     <button type="button" class="btn btn-warning" onclick="mypage()">마이페이지</button>
-                    </c:when>
-                    <c:otherwise>
-                        <button type="button" class="btn btn-warning" onclick="save()">회원가입</button>
-                    </c:otherwise>
+                </c:when>
+                <c:otherwise>
+                    <button type="button" class="btn btn-warning" onclick="save()">회원가입</button>
+                </c:otherwise>
 
-                </c:choose>
+            </c:choose>
 
 
 
-            </div>
-            </div>
+        </div>
+    </div>
 </header>
 
 <script>
     function login() {
         location.href = "/member/login"
     }
-
     function logout() {
         location.href = "/member/logout"
     }
@@ -94,7 +85,9 @@
     function save(){
         location.href = "/member/save1"
     }
-
+    function adminlogin(){
+        location.href = "/member/admin"
+    }
 </script>
 
 </body>
